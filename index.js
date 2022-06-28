@@ -108,7 +108,33 @@ function renderStoreItems() {
 }
 
 function renderCartItems() {
+  let cartUl = document.querySelector('.cart--item-list')
+  cartUl.textContent = ''
 
+  let cartLi = document.createElement('li')
+
+  let itemImg = document.createElement('img')
+  itemImg.className = 'cart--item-list'
+  itemImg.src = 'assets/icons/001-beetroot.svg'
+  itemImg.alt = 'beetroot'
+
+  let itemName = document.createElement('p')
+  itemName.textContent = 'beetroot'
+
+  let removeButton = document.createElement('button')
+  removeButton.className = 'quantity-btn remove-btn center'
+  removeButton.textContent = '-'
+
+  let quantity = document.createElement('span')
+  quantity.className = 'quantity-text center'
+  quantity.textContent = '1'
+
+  let addButton = document.createElement('button')
+  addButton.className = 'quantity-btn add-btn center'
+  addButton.textContent = '+'
+
+  cartLi.append(itemImg, itemName, removeButton, quantity, addButton)
+  cartUl.append(cartLi)
 }
 
 function renderTotal() {
@@ -122,3 +148,4 @@ function render() {
 }
 
 render()
+renderCartItems()
