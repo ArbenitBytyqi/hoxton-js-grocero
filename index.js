@@ -9,7 +9,7 @@ let state = {
     },
     {
       id: 2,
-      name: 'carror',
+      name: 'carrot',
       price: 0.20,
       inCart: 2,
       image: 'assets/icons/002-carrot.svg',
@@ -37,7 +37,7 @@ let state = {
     },
     {
       id: 6,
-      name: 'banana',
+      name: 'bananas',
       price: 0.30,
       inCart: 3,
       image: 'assets/icons/006-bananas.svg',
@@ -73,7 +73,10 @@ let state = {
   ]
 }
 
-function getItemImagePath() { }
+function getItemImagePath(item) {
+  let id = String(item.id).padStart(3, '0')
+  return `assets/icons/${id}-${item.name}.svg`
+}
 
 function getTotal() { }
 
@@ -93,7 +96,7 @@ function renderStoreItems() {
     iconDiv.className = '.store--item-icon'
 
     let iconImg = document.createElement('img')
-    iconImg.src = item.image
+    iconImg.src = getItemImagePath(item)
 
     let addButton = document.createElement('button')
     addButton.textContent = 'Add item to cart'
